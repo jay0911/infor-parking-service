@@ -34,7 +34,6 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 		InforParking inforParking = new InforParking();
 		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
 		inforParking.setParkingid(dto.getParkingid());
-		inforParking.setTandemposition(dto.getTandemposition());
 		inforParking.setUserid(-1);
 		md.saveParking(inforParking);
 	}
@@ -45,7 +44,6 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 		InforParking inforParking = new InforParking();
 		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
 		inforParking.setParkingid(dto.getParkingid());
-		inforParking.setTandemposition(dto.getTandemposition());
 		inforParking.setUserid(dto.getUserid());
 		md.editParking(inforParking);
 	}

@@ -15,7 +15,7 @@ import com.infor.models.InforParking;
 public class ParkingMaintenanceIDao extends HibernateDaoSupport implements ParkingMaintananceDao{
 	
 	private static final String PARKING_FETCHALL_HQL = "from InforParking";
-	private static final String PARKING_MODIFY_HQL = "update InforParking set isparkingtandem=:isparkingtandem, tandemposition=:tandemposition, userid=:userid where parkingid=:parkingid";
+	private static final String PARKING_MODIFY_HQL = "update InforParking set isparkingtandem=:isparkingtandem, userid=:userid where parkingid=:parkingid";
 	private static final String PARKING_DELETE_HQL = "delete from InforParking where parkingid=:parkingid";
 
 	
@@ -43,7 +43,6 @@ public class ParkingMaintenanceIDao extends HibernateDaoSupport implements Parki
 		q.setParameter("parkingid", inforParking.getParkingid());
 		q.setParameter("userid", inforParking.getUserid());
 		q.setParameter("isparkingtandem", inforParking.getIsparkingtandem());
-		q.setParameter("tandemposition", inforParking.getTandemposition());
 		q.executeUpdate();
 	}
 
