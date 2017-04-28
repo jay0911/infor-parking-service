@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import com.infor.dao.ParkingMaintananceDao;
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.InforParking;
 
 
@@ -21,7 +21,7 @@ public class ParkingMaintenanceIDao extends HibernateDaoSupport implements Parki
 	
 
 	@Override
-	public void deleteParking(UserMaintenanceDTO dto) {
+	public void deleteParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		
 		Query query = getSessionFactory().createQuery(PARKING_DELETE_HQL);
@@ -47,7 +47,7 @@ public class ParkingMaintenanceIDao extends HibernateDaoSupport implements Parki
 	}
 
 	@Override
-	public List<InforParking> selectParking(UserMaintenanceDTO dto) {
+	public List<InforParking> selectParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		return null;
 	}

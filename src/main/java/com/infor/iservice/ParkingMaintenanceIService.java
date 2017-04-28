@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infor.dao.ParkingMaintananceDao;
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.InforParking;
 import com.infor.models.InforUser;
 import com.infor.service.ParkingMaintenanceService;
@@ -23,13 +23,13 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 	private ParkingMaintananceDao md;
 
 	@Override
-	public void deleteParking(UserMaintenanceDTO dto) {
+	public void deleteParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		md.deleteParking(dto);
 	}
 
 	@Override
-	public void saveParking(UserMaintenanceDTO dto) {
+	public void saveParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		InforParking inforParking = new InforParking();
 		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
@@ -39,7 +39,7 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 	}
 
 	@Override
-	public void editParking(UserMaintenanceDTO dto) {
+	public void editParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		InforParking inforParking = new InforParking();
 		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
@@ -49,7 +49,7 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 	}
 
 	@Override
-	public List<InforParking> selectParking(UserMaintenanceDTO dto) {
+	public List<InforParking> selectParking(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		return md.selectAllParking();
 	}

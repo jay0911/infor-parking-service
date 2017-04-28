@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.AjaxResponseBody;
 import com.infor.service.ParkingMaintenanceService;
 
@@ -16,14 +16,14 @@ public class ParkingMaintenanceEndpoint {
 	private ParkingMaintenanceService s;
 	
 	@PostMapping("/selectparking")
-	public UserMaintenanceDTO selectParking(@RequestBody UserMaintenanceDTO dto){
-		UserMaintenanceDTO returndto = new UserMaintenanceDTO();
+	public MaintenanceDTO selectParking(@RequestBody MaintenanceDTO dto){
+		MaintenanceDTO returndto = new MaintenanceDTO();
 		returndto.setInforParkings(s.selectParking(dto));
 		return returndto;
 	}
 	
 	@PostMapping("/deleteparking")
-	public AjaxResponseBody deleterole(@RequestBody UserMaintenanceDTO dto){
+	public AjaxResponseBody deleterole(@RequestBody MaintenanceDTO dto){
 		AjaxResponseBody response = new AjaxResponseBody();
 		try{
 			s.deleteParking(dto);
