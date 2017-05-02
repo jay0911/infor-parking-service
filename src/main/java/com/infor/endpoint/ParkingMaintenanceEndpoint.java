@@ -35,4 +35,18 @@ public class ParkingMaintenanceEndpoint {
 		}
 		return response;
 	}
+	
+	@PostMapping("/saveparking")
+	public AjaxResponseBody saverole(@RequestBody MaintenanceDTO dto){
+		AjaxResponseBody response = new AjaxResponseBody();
+		try{
+			s.saveParking(dto);
+			response.setMsg("success");
+			response.setCode("200");
+		}catch(Exception e){
+			response.setMsg("failed");
+			response.setCode("400");
+		}
+		return response;
+	}
 }

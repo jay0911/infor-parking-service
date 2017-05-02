@@ -34,7 +34,7 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 		InforParking inforParking = new InforParking();
 		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
 		inforParking.setParkingid(dto.getParkingid());
-		inforParking.setUserid(-1);
+		inforParking.setUserid(dto.getUserid());
 		md.saveParking(inforParking);
 	}
 
