@@ -1,5 +1,6 @@
 package com.infor.idao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -14,7 +15,7 @@ import com.infor.models.InforParking;
 @Transactional
 public class ParkingMaintenanceIDao extends HibernateDaoSupport implements ParkingMaintananceDao{
 	
-	private static final String PARKING_FETCHALL_HQL = "from InforParking";
+	private static final String PARKING_FETCHALL_HQL = "select distinct ip.parkingid,ip.isparkingtandem from InforParking ip";
 	private static final String PARKING_MODIFY_HQL = "update InforParking set isparkingtandem=:isparkingtandem, userid=:userid where parkingid=:parkingid";
 	private static final String PARKING_DELETE_HQL = "delete from InforParking where parkingid=:parkingid";
 
@@ -55,7 +56,15 @@ public class ParkingMaintenanceIDao extends HibernateDaoSupport implements Parki
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<InforParking> selectAllParking() {
-		return customSelectQuery(PARKING_FETCHALL_HQL)
-				.list();
+		List<InforParking> ip = new ArrayList<InforParking>();
+		List<Object[]> plainObj = customSelectQuery(PARKING_FETCHALL_HQL).list();
+		
+		for(Object[] obj: plainObj){
+			InforParking inforParking = new InforParking();
+			inforParking.setParkingid((String)obj[0]);
+			inforParking.setIsparkingtandem((String)obj[1]);
+			ip.add(inforParking);
+		}	
+		return ip;
 	}
 }
