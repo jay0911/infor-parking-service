@@ -11,4 +11,5 @@ public interface ParkingMaintenanceService {
 	public void editParking(MaintenanceDTO dto);
 	public List<InforParking> selectParking(MaintenanceDTO dto);
 	
+	public MaintenanceDTO selectParkingUser(InforParking inforParking);
 }	

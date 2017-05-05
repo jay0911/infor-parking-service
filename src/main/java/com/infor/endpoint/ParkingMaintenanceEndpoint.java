@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infor.dto.MaintenanceDTO;
 import com.infor.models.AjaxResponseBody;
+import com.infor.models.InforParking;
 import com.infor.service.ParkingMaintenanceService;
 
 @RestController
@@ -48,5 +49,12 @@ public class ParkingMaintenanceEndpoint {
 			response.setCode("400");
 		}
 		return response;
+	}
+	
+	@PostMapping("/selectParkingUsers")
+	public MaintenanceDTO selectParkingUsers(@RequestBody MaintenanceDTO dto){
+		InforParking ip = new InforParking();
+		ip.setParkingid(dto.getParkingid());
+		return s.selectParkingUser(ip);
 	}
 }

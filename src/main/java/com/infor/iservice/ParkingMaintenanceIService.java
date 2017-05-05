@@ -54,4 +54,12 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 		return md.selectAllParking();
 	}
 
+	@Override
+	public MaintenanceDTO selectParkingUser(InforParking inforParking) {
+		// TODO Auto-generated method stub
+		MaintenanceDTO returnDTO = new MaintenanceDTO();
+		returnDTO.setInforUsers(md.selectParkingUser(inforParking));
+		return returnDTO;
+	}
+
 }
