@@ -57,4 +57,18 @@ public class ParkingMaintenanceEndpoint {
 		ip.setParkingid(dto.getParkingid());
 		return s.selectParkingUser(ip);
 	}
+	
+	@PostMapping("/editparking")
+	public AjaxResponseBody editparking(@RequestBody MaintenanceDTO[] dto){
+		AjaxResponseBody response = new AjaxResponseBody();
+		try{
+			s.editParking(dto);
+			response.setMsg("success");
+			response.setCode("200");
+		}catch(Exception e){
+			response.setMsg("failed");
+			response.setCode("400");
+		}
+		return response;
+	}
 }

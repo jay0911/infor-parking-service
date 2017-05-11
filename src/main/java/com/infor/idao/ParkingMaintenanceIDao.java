@@ -17,7 +17,7 @@ import com.infor.models.InforUser;
 public class ParkingMaintenanceIDao extends HibernateDaoSupport implements ParkingMaintananceDao{
 	
 	private static final String PARKING_FETCHALL_HQL = "select distinct ip.parkingid,ip.isparkingtandem from InforParking ip";
-	private static final String PARKING_MODIFY_HQL = "update InforParking set isparkingtandem=:isparkingtandem, userid=:userid where parkingid=:parkingid";
+	//private static final String PARKING_MODIFY_HQL = "update InforParking set isparkingtandem=:isparkingtandem, userid=:userid where parkingid=:parkingid and userid=:olduserid";
 	private static final String PARKING_DELETE_HQL = "delete from InforParking where parkingid=:parkingid";
 	private static final String PARKING_FETCHUSER = "select distinct ip.userid,iu.firstname,iu.lastname,iu.position,iu.contactnumber,iu.emailaddress,iu.inforaddress from tbl_inforparking ip join tbl_inforuser iu on ip.userid = iu.userid where ip.parkingid=:parkingid";	
 
@@ -40,11 +40,7 @@ public class ParkingMaintenanceIDao extends HibernateDaoSupport implements Parki
 	@Override
 	public void editParking(InforParking inforParking) {
 		// TODO Auto-generated method stub
-		Query q= getSessionFactory().createQuery(PARKING_MODIFY_HQL);
-		q.setParameter("parkingid", inforParking.getParkingid());
-		q.setParameter("userid", inforParking.getUserid());
-		q.setParameter("isparkingtandem", inforParking.getIsparkingtandem());
-		q.executeUpdate();
+		
 	}
 
 	@Override

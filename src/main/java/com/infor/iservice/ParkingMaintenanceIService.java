@@ -39,13 +39,12 @@ public class ParkingMaintenanceIService implements ParkingMaintenanceService{
 	}
 
 	@Override
-	public void editParking(MaintenanceDTO dto) {
+	public void editParking(MaintenanceDTO[] dto) {
 		// TODO Auto-generated method stub
-		InforParking inforParking = new InforParking();
-		inforParking.setIsparkingtandem(dto.getIsparkingtandem());
-		inforParking.setParkingid(dto.getParkingid());
-		inforParking.setUserid(dto.getUserid());
-		md.editParking(inforParking);
+		md.deleteParking(dto[0]);
+		for(MaintenanceDTO singleDTO : dto){
+			this.saveParking(singleDTO);
+		}
 	}
 
 	@Override
